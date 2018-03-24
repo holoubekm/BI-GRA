@@ -1,0 +1,540 @@
+\documentclass[12pt]{article}
+
+\usepackage[czech]{babel}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{indentfirst}
+\usepackage{natbib}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{Studijní materiál na BI-GRA15}
+\author{Martin Holoubek}
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+\parindent=2.2em
+
+\begin{document}
+\maketitle
+\cleardoublepage
+
+
+\section{Definice}
+\noindent
+Je-li graf souvislý, potom platí, že: $\left| H \right| \geq \left| U \right| - 1$
+
+$\Rightarrow$ souvislý graf o $n$ uzlech musí mít alespoň $n-1$ hran (kružnice)
+
+
+\noindent
+\textbf{multigraf} = graf, který může mít smyčky, rovnoběžné hrany\\
+\textbf{prostý graf} = multigraf bez rovnoběžných hran\\
+\textbf{obyčejný graf} = prostý graf bez smyček\\
+
+\noindent
+\textbf{orientovaný graf} = graf s orient. a rovnob. hranami a smyčkami\\
+\textbf{prostý OG} = graf bez rovnoběžných hran \\
+\textbf{obyčejný OG} = prostý OG bez smyček
+
+\noindent
+\textbf{podgraf} = podgraf $G'\langle U', H', \rho'\rangle$ grafu $G\langle U, H, \rho\rangle$, takový, že $U' \subseteq U$, $H' \subseteq H$ při zachování incidence.\\
+\textbf{faktor} = podgraf se všemi uzly (hranový podgraf)\\
+\textbf{izomorfismus} = izomof. dvou grafů je vzájemné zobrazení jejich hran a uzlů při zachování incidence.\\
+\textbf{automorfismus} = izomorfismus grafu na sebe\\
+
+\noindent
+\textbf{sousední uzly} = dva uzly, které incidují se stejnou hranou\\
+\textbf{stupeň uzlu, $\delta(u)$} = počet hran, které s uzlem incidují\footnote{Smyčka zvyšuje stupeň uzlu o 2.}
+
+$\Rightarrow$ obecně pro graf $G\langle U, H, \rho\rangle$ platí, že $\displaystyle \sum_{u\in U} \delta(u) = 2\left| H\right|$\\
+
+\noindent
+\textbf{sled} = posloupnost uzlů a hran, začíná a končí uzlem\\
+\textbf{tah} = sled, ve kterém se neopakují hrany\\
+\textbf{cesta} = tah, ve kterém se neopakují ani uzly\\
+\textbf{délka tahu} = počet hran v tahu\\
+
+\noindent
+\textbf{kružnice} = uzavřená cesta délky alespoň 1\\
+\textbf{cyklus} = uzavřená orientovaná cesta\\
+
+\noindent
+\textbf{(slabě) souvislý graf} = mezi všemi body existuje sled\\
+\textbf{(slabá) komponenta} = maximální slabě souvislý podgraf\\
+\textbf{silně souvislý graf} = mezi všemi body u, v existuje spojení z u do v\\
+\textbf{silná komponenta} = maximální silně souvislý podgraf\\
+
+\noindent
+\textbf{kongenzace} = silné komponenty se změní na uzly a necháme zbylé hrany\\
+\textbf{strom} = souvislý graf bez kružnic\\
+\textbf{kostra} = faktor grafu, který je stromem
+
+$\Rightarrow$ silně souvislý graf má každou hranu v cyklu\\
+
+\noindent
+\textbf{$\delta^+(u)$, výstupní stupeň} = počet hran vedoucích z uzlu\\
+\textbf{$\delta^-(u)$, vstupní stupeň} = počet hran vedoucích do uzlu
+
+$\Rightarrow$ obecně pro OG $G\langle U, H, \rho\rangle$ platí, že $\displaystyle \sum_{u\in U} \delta^+(u) = \sum_{u\in U} \delta^-(u) = \left| H\right|$\\
+
+\noindent
+\textbf{acyklický graf} = orientovaný graf bez cyklů\\
+\textbf{topologické uspoř.} = posloupnost $u_1, u_2 \ldots u_n$ tak, že pro $\forall h(u_i, u_j) \in H$ platí, že $i<j$
+
+\noindent
+\textbf{nalezení topologického uspořádání} = postupně odebírám uzly, jejichž stupeň je $1$, snižuji stupeň jejich sousedů. Pořadí odebírání je jejich topologické uspořádání.
+
+\noindent
+\textbf{matice incidence} = matice $U \times H$, sloupce obsahují $1$ v místě uzlu, se kterým daná hrana inciduje.\\
+\textbf{matice sousednosti} = matice $U \times U$, obsahuje $1$ v poli, které značí sousednost dvou uzlů.\\
+\textbf{spojová reprezentace} = indexované pole spojových seznamů na sousedy daného uzlu\\
+
+\noindent
+\textbf{pokrytí grafu} = rozklad množiny hran do tříd, kde každá třída je tahem.\\
+\textbf{minimální pokrytí} = pokrytí s minimálním počtem tahů.\\
+\textbf{Eulerův graf (neorient.)} = všechny uzly mají sudý stupeň
+
+$\Rightarrow$ aby graf mohl být pokryt jedním tahem musí být (slabě) \textbf{souvislý} a \textbf{Eulerův}.\\
+
+\noindent
+Pokud má souvislý graf $2n$ uzlů lichého stupně
+
+$\Rightarrow$ potom k jeho pokrytí stačí $n$ \textbf{otevřených} tahů.\\
+
+\noindent
+\textbf{Eulerův graf (orient.)} = pro $\forall u \in U$ platí, že $ \delta^+(u) = \delta^-(u)$
+
+\noindent
+Pokud u souvislého OG rozdělíme uzly do množin $U_1 = \{ u : \delta^+(u) = \delta^-(u)\}, U_2 = \{ u : \delta^+(u) > \delta^-(u)\}, U_3 = \{ u : \delta^+(u) < \delta^-(u)\}$
+
+$\Rightarrow$ potom k jeho pokrytí stačí $k$ orientovaných tahů.
+$$k=\sum_{u \in U_2}{\delta^+(u)-\delta^-(u)}=\sum_{u \in U_3}{\delta^-(u)-\delta^+(u)}$$
+
+\noindent
+\textbf{Hamiltonovská cesta} = kružnice, která obsahuje všechny uzly grafu.\\
+\textbf{Hamiltonovský graf} = graf, který obsahuje Hamiltonovskou kružnici.\\
+
+\noindent
+\textbf{nezávislá podmnožina} = taková podmnožina uzlů, pro kterou platí, že žádné dva její uzly nejsou svými sousedy.\\
+\textbf{nezávislost}, $\alpha(G)$ = velikost maximální nezávislé podmnožiny.\\
+\textbf{klika} = maximální úplný podgraf.\\
+\textbf{klikovost}, $\omega(G)$ = velikost kliky.
+
+$\Rightarrow$ obecně platí, že $\omega(G) = \alpha(G')$, kde $G'$ je doplněk grafu $G$.\\
+\textbf{dominující podmnožina} = taková podmnožina uzlů, pro něž platí, že spolu se svými sousedy tvoří celou množinu uzlů.\\
+\textbf{dominance}, $\beta(G)$ = velikost minimální dominující podmnožiny.
+
+$\Rightarrow$ obecně platí, že $\beta(G) \leq \alpha(G)$, rovnost nastává, pokud je množina maximální nezávislá a zároveň minimální dominující.\\
+\textbf{barevnost}, $\chi(G)$ = minimální počet barev, kterými lze graf obarvit tak, každá hrana vede mezi dvěma různě obarvenými uzly.
+
+$\Rightarrow$ obecně platí, že $\chi(G) . \alpha(G) \geq \left|U\right|$
+
+$\Rightarrow$ obecně platí, že $\chi(G) \geq \omega(G)$
+
+$\Rightarrow$ obecně platí, že $\chi(G) \leq \delta_{max}+1$
+
+$\Rightarrow$ obecně platí, že $\chi(G) = 2 \Leftrightarrow G$ neobsahuju kružnici liché délky\\
+
+\noindent
+\textbf{vzdálenost} = mezi dvěma uzly $u$ a $v$ je délka (počet hran) nejkratší cesty mezi těmito uzly.\\
+\textbf{průměr grafu}, $T(G)$ = největší vzdálenost dvou uzlů v grafu.\\
+\textbf{excentricita uzlu}, $e(u)$ = $max(d(u, v)) : \forall v \in U$.\\
+\textbf{poloměr grafu}, $r(G)$ = minimální excentricita na grafu.
+
+$\Rightarrow$ obecně platí, že $r(G) \leq T(G) \leq 2*r(g)$
+
+$\Rightarrow$ u stromů platí, že $T(G) = 2*r(g)$ nebo $T(G) = 2*r(g)-1$\\
+
+
+\noindent
+\textbf{tětiva} = hrana, které není v kostře.\\
+\textbf{cyklomatické číslo}, $\mu(G)$ = počet lineárně nezávislých kružnic v grafu = počet tětiv.
+
+$\Rightarrow$ obecně platí, že $\mu(G) = \left|H\right| - \left|U\right| + p$, kde $p$ je počet komponent.\\
+\textbf{hodnost grafu}, $h(G)$ = počet hran kostry, $h(G) = \left|U\right| - p$, kde $p$ je počet komponent.\\
+\textbf{hloubka uzlu}, $hl(u)$ = v kořenovém stromu je to vzdálenost od kořene.\\
+\textbf{hloubka grafu}, $hl(G)$ = maximální hloubku uzlu v grafu.
+
+$\Rightarrow$ obecně platí, že \textbf{pravidelný strom} stupně $r$ s $k$ vnitřními uzly má $k(r-1)+1$ listů a $k*r$ hran.\\
+
+\noindent
+\textbf{vnitřní délka stromu} = součet hloubky všech vnitřních uzlů stromu.\\
+\textbf{vnější délka stromu} = součet hloubky všech listů stromu.\\
+
+\noindent
+\textbf{w - délka spojení} = součet ohodnocení všech hran, které spojení tvoří.\\
+\textbf{w - vzdálenost}, $d_w(u, v)$ = nejmenší délka spojení mezi uzly $u$ a $v$.\\
+
+$\Rightarrow$ obecně pro konečné i nekonečné vzálenosti platí trojúhelníková nerovnost, $d_w(s, v) \leq d_w(s, u) + w(u, v)$, kde $(u, v)$ je libovolná hrana a $s$ je nějaký uzel.\\
+
+\noindent
+\textbf{hranový řez} = taková minimální podmnožina hran $S$, že po jejím odebrání se graf rozpadne na dvě komponenty.
+
+$\Rightarrow$ lze formalovat jako $S \subseteq H: h(G-S) = h(G)-1$.\\
+\textbf{artikulace} = uzel grafu $u$ takový, že po jeho odebrání bude mít graf více komponent.
+
+$\Rightarrow$ množina hran incidujících s uzlem $u$ je hranový řez, \textbf{právě když} $u$ \textbf{není artikulace}.
+
+$\Rightarrow$ hranový řez obsahuje alespoň jednu hranu kostry, proto se zmenší $h(G)$.\\
+
+
+\noindent
+\textbf{planární graf} = graf, který lze zakreslit v $\mathbb{R}^2$ bez křížení hran.
+
+$\Rightarrow$ nechť G je planární graf $\Rightarrow$ platí, že $\left|H\right| - \left|U\right| + 2 = r$, kde $r$ je počet "stěn" grafu a tzv. \textbf{Eulerovo číslo}.
+
+$\Rightarrow$ pro planární grafy platí, že $\left|H\right|=k \frac{\left|U\right|-2}{k-2}$, to lze použít k důkazu, že graf není planární ne naopak.
+
+$\Rightarrow$ základní graf, který není planární je $K_{3,3}$ a $K_5$.\\
+\textbf{homeomorfismus} = dva grafy jsou homeomorfní jsou-li izomorfní, nebo se jimi stanou půlením hran.
+
+$\Rightarrow$ graf je planární, \textbf{právě když neobsahuje} podgraf homeomorfní s $K_{3,3}$ ani $K_5$.
+
+
+\noindent
+\textbf{síť} = síť se skládá z orientovaného grafu, kapacity hran (zobrazení hran na celá čísla), zdroje a spotřebiče, což jsou dva význačné uzly.\\
+\textbf{přípustný tok} = je takový tok, který na žádné hraně nepřekračuje kapacity a pro každý uzel platí Kirchhoffův zákon.\\
+\textbf{Kirchhoffův zákon} = požaduje, aby se suma toho, co do uzlu vtéká rovnala sumě toho, co odtéká.\\
+\textbf{velikost toku} = rozdíl toho, co odteče ze zdroje a toho, to ce do něj vrací. Nebo rozdíl toho, co přiteče do spotřebiče, mínus to, co z něj odtéká.\\
+\textbf{řez sítě} = takový řez, který odděluje zdroj od spotřebiče.\\
+\textbf{kapacita řezu} = jsuma kapacity hrany, které by vedly z komponenty ze zdrojem do komponenty se spotřebičem.
+
+$\Rightarrow$ velikost maximálního toku je rovna kapacitě minimálního řezu.
+
+\noindent
+\textbf{cirkulace} = tok v síti, kdy pro každý uzel platí, že suma vtékající je rovná sumě vytékající.
+
+$\Rightarrow$ cirkulace existuje, právě když \textbf{každý} hranový řez má nezápornou kapacitu.
+\cleardoublepage
+
+\section{Algoritmy}
+\subsection{Základní algoritmy}
+\subsubsection{BFS}
+Prohledávání do šířky, používá se fronta. Uzly mají stavy \textbf{FRESH}, \textbf{OPEN}, \textbf{CLOSE}
+
+\begin{lstlisting}[language=c]
+void BFS (Graph G, Node s) {
+      for (Node u in U(G)-s){ 
+            stav[u] = FRESH; 
+      } stav[s] = OPEN; 
+      Queue.Init(); Queue.Push(s);
+      while (!Queue.Empty()) {
+            u = Queue.Pop();
+            for (v in Adj[u]) {
+                  if (stav[v] == FRESH) {
+                        stav[v] = OPEN; Queue.Push(v);
+                  } 
+            } stav[u] = CLOSED;
+      }
+}
+\end{lstlisting}
+
+\subsubsection{DFS}
+Prohledávání do hloubky, používá se zásobník. Uzly mají stavy \textbf{FRESH}, \textbf{OPEN}, \textbf{CLOSE} a také časové značky otevření $d[t]$ a uzavření $f[t]$, platí, že $d[t] < f[t]$
+
+DFS klasifikuje 4 druhy hran: \textbf{stromová}, \textbf{zpětná} vede k \textbf{OPEN} uzlu, \textbf{dopředná} $h(u, v), d[u] < d[v]$, \textbf{příčná} $h(u, v), d[u] < d[v]$\\
+Složitost je $\textrm{O}(\left|U\right|$+$\left|H\right|)$
+
+\begin{lstlisting}[language=c]
+void DFS (Graph G) 
+{
+      for (Node u in U(G)) {
+            stav[u] = FRESH; p[u] = null; 
+      } i = 0;
+      for (Node u in U(G))
+            if (stav[u] == FRESH)
+                  DFS-Projdi(u);
+}
+
+void DFS-Projdi(Node u) {
+      stav[u] = OPEN; d[u] = ++i;
+      for (Node v in Adj[u]) {
+            if (stav[v] == FRESH) {
+                  p[v] = u; DFS-Projdi(v); 
+            }
+      }
+      stav[u] = CLOSED; f[u] = ++i;
+}
+\end{lstlisting}
+
+\subsubsection{Topo-sort}
+Řeší topologické uspořádání uzlů. Na graf pustíme DFS a v okamžiku uzavření uzlu jej vložíme na zásobník. Zásobník poté obsahuje uzly topologicky uspořádané.
+
+\subsubsection{Silné komponenty pomocí DFS}
+DFS určí pro všechny uzly časy otevření a uzavření.
+Vytvoříme nový opačně orientovaný graf.
+Provedeme na něm DFS tak, že v hlavním cyklu bereme uzly v pořadí klesající příznaku uzavření uzlu.
+Stromy DFS lesa označují silné komponenty.\footnote{Viz. druhý úkol na progtestu}
+
+\subsubsection{Hledání Eulerova tahu}
+Greedy algoritmus, který zkouší na zásobníku všechny možnosti.
+
+Ověříme, že je graf souvislý a jeho uzly mají sudý stupeň. Vybereme počáteční uzel s a vložíme jej na zásobník. 
+Dokud není zásobník prázdný a uzel u je na vrcholu.
+Pokud má uzel u nějakou incidující hranu (u, v) odstraníme hranu z grafu a přidáme v na zásobník.
+Pokud nemá incidující hranu odebereme ho ze zásobníku a přidáme do výsledného Eulerova tahu.
+
+\begin{lstlisting}[language=python]
+function find_Euler_Trail(Graph g, Node u):
+      stack.push(u)
+      result = {}
+      while not stack.Empty():
+            edge = stack.top().adjacentEdge()
+            if edge not None:
+                  g.removeEdge(edge)
+                  stack.push(edge.to())
+            else:
+                  result.insert(stack.top())
+                  stack.pop()
+      return result
+\end{lstlisting}
+
+
+\subsection{Hledání kostry}
+\subsubsection{Borůvkův - Kruskalův algoritmus}
+Algoritmus hledání \textbf{minimální kostry} na ohodnoceném grafu. Hrany si seřadí podle ceny a postupně je přidává do kostry a kontroluje, zda daná hrana nevytvoří kružnici.\\
+Kontrola kružnic funguje na principu rozdělení uzlů do množin, pokud přidáme hranu mezi dva uzly ze stejné množiny, víme, že už mezi nimi existuje cesta a proto jsme právě vytvořili kružnici.\\
+Složitost je $\textrm{O}(\left|H\right|$+$\lg\left|H\right|)$, kterou způsobuje řazení, zbytek algoritmu je rychlejší.
+
+\begin{lstlisting}[language=c]
+void BK-MST(Graph G, Weights w) {
+      for (Node u in U(G)) 
+            makeSet(u);
+      T = Empty; sortEdges(G)
+      for (Edge [u,v] in H(G)) {
+            if (FIND(u) != FIND(v)) {
+                  T.addEdge([u, v])
+                  unionSet(u,v);
+            } 
+      }
+      return T;
+}
+\end{lstlisting}
+
+\subsubsection{Jarníkův - Primův algoritmus}
+Algoritmus hledání \textbf{minimální kostry} na ohodnoceném grafu. Tvoří si množinu uzlů, které má spojené minimální kostrom, postupně ji zvětšuje tak, že přidává nejkratší hranu, které spojuje tuto množinu s nějakým jiným uzlem.\\
+Algoritmus pro svou činnost používá prioritní frontu a jeho zradou je, že \textbf{potřebuje měnit priority} již vložených prvků.
+Složitost je $\textrm{O}(\left|U\right|)$ + $\textrm{O}(\left|U\right| * \log \left|U\right|)$ + $\textrm{O}(\left|H\right| * \lg \left|U\right|)$.
+
+\begin{lstlisting}[language=c]
+void JP-MST(Graph G, Weights w, Node r) {
+      Q = U; T = Empty;
+      for (Node u in Q) 
+            d[u] = inf.;
+      d[r] = 0; p[r] = null;
+      while (not Q.empty()) {
+            u = Q.ExtMin();
+            for (Node v in Adj[u]){
+                  if ((v in Q) && (w(u,v) < d[v])){
+                        p[v] = u;
+                        //Here the priority changes 
+                        d[v] = w(u,v);
+                  }
+            }
+      }
+}
+\end{lstlisting}
+
+
+\subsection{Kódování dat}
+\subsubsection{Huffmanův algoritmus}
+Slouží ke generování jednoznačného optimálního prefixového stromu. Platí, že žádné slovo není prefixem jiného slova, proto můžeme vždy deterministicky určit další postup.\\
+Algoritmus je uveden pro \textbf{zobecněný stupeň} uzlu. Pro stupeň uzlu 2 se bere v úvahu pouze x a y.\\
+
+\begin{lstlisting}[language=c]
+void HuffmanTree(Weights w, int n) {
+      Q.Init();
+      for (int i = 1; i <= n; i++) {
+            u = MakeNode(w[i]);
+            Q.Push(u);
+      }
+      for (int i = 1; i < n; i++) {
+            x = Q.ExtMin(); y = Q.ExtMin(); 
+            # z = Q.ExtMin();
+            node = MakeNode(w[x] + w[y] ... + w[z]); 
+            node.setChild(0, x); node.setChild(1, y);
+            # node.setChild(2, z);
+            Q.Push(node);
+      }
+      return Q.ExtMin();
+}
+\end{lstlisting}
+
+\subsection{Určování vzdálenosti od uzlu}
+\subsubsection{Společné funkce pro určení vzdálenosti}
+Inicializace vzdáleností a počátečního uzlu.
+\begin{lstlisting}[language=c]
+void InitPaths(Graph G, Node s) {
+      for(Node u in U(G)) {
+            d[u] = +inf.;
+            p[u] = null;
+      } d[s] = 0;
+}
+\end{lstlisting}
+
+Princip relaxace (kontrola nalezení lepší cesty)
+\begin{lstlisting}[language=c]
+void Relax (Node u, Node v, Weights w) {
+      newVal = d[u] + w(u,v);
+      if(d[v] > newVal) {
+            d[v] = newVal; p[v] = u;
+      }
+}
+\end{lstlisting}
+
+\subsubsection{Dijkstrův algoritmus}
+Dijkstrův algoritmus určí vzdálenosti všech uzlů od počátečního uzlu. Funguje na orientovaných i neorientovaných grafech. Ohodnocení hran musí být z $\mathbb{R}_{\geq 0}$.
+V každém kroku algoritmus vyřeší jeden uzel a přepočítá všechny vzdáledosti k sousedním uzlům. Správnost algoritmu je založena na tom, že pokaždé bereme \textbf{uzel s nejmenší vzdáleností} od počátku.
+Složitost je $\textrm{O}(\left|H\right|+\left|U\right|^2)$ = $\textrm{O}(\left|U\right|^2)$.
+
+\begin{lstlisting}[language=c]
+void Dijkstra(Graph G, Node s, Weights w) {
+      InitPaths(G,s);
+      S = Empty; Q = U(G);
+      while(not Q.empty()) {
+            u = Q.pop(); //u with lowest distance
+            S = S union {u}; 
+            for(Node v in Adj[u]) {
+                  Relax(u, v, w);
+            }
+      }
+}
+\end{lstlisting}
+
+\subsubsection{Belman - Fordův algoritmus}
+Dijkstrův algoritmus určí vzdálenosti všech uzlů z počátečního uzlu. Ohodnocení hran mohou být z $\mathbb{R}$, tzv. funguje správně i s \textbf{negativním ohodnocením}.
+V každém cyklu algoritmus relaxuje pohle všechn hran v grafu. Postupně tak počítá nejkratší cesty určité délky podle čísla iterace.\\
+Další vlastností algoritmu je detekce záporných cyklů. Princip je jednoduchý, po doběhnutí algoritmus už nemůžeme najít kratší cestu, protože jsme všechny již zkusili. Pokud kratší cestu najdeme, znamená to, že graf obsahuje záporný cyklus.
+Složitost je $\textrm{O}(\left|U\right|*\left|H\right|)$.
+
+\begin{lstlisting}[language=c++]
+bool Bel-Ford(Graph G, Node s, Weights w) {
+      InitPaths(G, s);
+      for (int i = 1; i < |U|; i++)
+            for(Edge (u,v) in H)
+                  Relax(u,v,w);
+      for(Edge (u,v) in H) {
+            if(d[v] > d[u] + w(u,v))
+                  return false; 
+      }
+      return true;
+}
+\end{lstlisting}
+
+\subsubsection{Úprava pro acyklické grafy}
+Nejdřív provedeme topologické seřazení uzlů. Potom v uzly v hlavním cyklu \textbf{bereme podle} jejich topologického uspořádání.\\
+Složitost topologického uspořádání i výsledného algoritmu je $\textrm{O}(\left|U\right|$+$\left|H\right|)$
+
+\begin{lstlisting}[language=c]
+void DAG-Paths(Graph G, Node s, Weights w) {
+      TopoSort(G);
+      InitPaths(G, s);
+      for(Node u in U(G)) {
+            for(Node v in Adj[u])
+                  Relax(u,v,w);
+      }
+}
+\end{lstlisting}
+
+
+\subsection{Určení vzdálenosti mezi všemi uzly}
+\subsubsection{Floyd - Warshall algoritmus}
+Algoritmus postupně propočítává vzdálenosti mezi všemi uzly, index $i$ určuje momentálně počítanou vzdálenost. Pomocí úpravy algorimu lze snadno počítat matici předchůdců, tranzitivně reflexivní uzávěr (relace) a nebo dostupnost (boolovská matice). Počítáme s maticí vzdáleností $W$ a maticí předchůdců $P$.\\
+Složitost algoritmu je $\textrm{O}(\left|U\right|^3)$
+
+\begin{align*}
+    W_{ij}^0 &=
+\left\{
+      \begin{array}{ll}
+            0  & \mbox{if } i = j \\
+            w(u_i, u_j) & \mbox{if } i \neq j \land (u_i, u_J) \in H\\
+            \infty & \mbox{else }
+      \end{array}
+\right.\\
+P_{ij}^0 &=
+\left\{
+      \begin{array}{ll}
+            null  & \mbox{if } i = j \lor \text{path not exists}\\
+            u_k & \mbox{if } u_k\text{ is predecessor }u_j\text{ in path} (u_i, u_j)
+      \end{array}
+\right.\\
+P_{ij} &=
+\left\{
+      \begin{array}{ll}
+            P_{ij}  & \mbox{if } d_{ij} \leq d_{ik} + d_{kj}\\
+            P_{kj} & \mbox{if } d_{ij} > d_{ik} + d_{kj}
+      \end{array}
+\right.
+\end{align*}
+
+\begin{lstlisting}[language=c]
+float** Floyd-Warshall(Weights W) {
+      D = copy(W);
+      for (k = 1; k <= n; k++) {
+            for (i = 1; i <= n; i++) {
+                  for (j = 1; j <= n; j++) {
+                        newDist = D[i][k] + d[k][j];
+                        D[i][j] = min(D[i][j], newDist);
+                  }
+            }
+      }
+      return D;
+}
+\end{lstlisting}
+
+
+\subsubsection{Johnsonův algoritmus}
+Zlepšený algoritmus pro nalezení všechn vzdáleností pro záporně ohodnocené grafy. Pridáme nový uzel $x$ a hrany z něj ke všem původním uzlům. Tyto hrany mají cenu $0$. Pomocí Bellman-Forda spočítáme vzdálenosti $d(x, u) : \forall u \in U$. Přehodnotíme původní hrany. $w'(u, v) = w(u, v) + d(x, u) - d(x, v): \forall h(u, v) \in H$.
+
+Nyní pustíme pro každý uzel Dijkstrův algoritmus s novým ohodnocením a po jeho doběhnutí přepočítáme vzdálenosti podle původních cen.
+
+\begin{lstlisting}[language=c++]
+
+bool Johnson(Graph G, Weight W, Node x) {
+      new_G = G.addNode(x);
+      if (!Bellman-Ford(new_G, W, x))
+            return false;
+      for (Node u in U(G))
+            h(u) = d(x,u);
+      for (Edge (u,v) in H(G))
+            new_W(u,v) = W(u,v) + h(u) - h(v);
+      for (Node u in U(G)) {
+            Dijkstra(G, new_W, u);
+            for (Node v in U(G)) 
+                  d(u,v) = new_d(u,v) - (u) + h(v);
+      } return true;
+}
+\end{lstlisting}
+
+\subsection{Hledání maximálního toku}
+Algoritmus funguje na principu iterace. Pro konvergenci algoritmu musí být hrany oceněny celými čísly. Hledáme zlepšující cestu ze zdroje ke spotřebiči takovou, která nám umožní přenést větší kapacitu materiálu.
+Pokud algoritmus nenajde zlepšující cestu zmanemá to, že již máme řešení.
+
+Další variantou může být síť se zápornými kapacitami, ty nahradíme opačne orientovanými hranami.
+
+Případné neorientované hrany zorientujeme tak, že přidáme dvě obousměrné orientované hrany se stejnou kapacitou jako původní.
+
+\subsubsection{Algoritmus Forda Fulkersona}
+\begin{lstlisting}[language=c++]
+int Ford-Fulkerson(Graph g, Pricing p) {
+      for(Edge (u,v) in H(G))  
+            f(u,v) = 0; 
+      while((S = improvingFlow(G, f, p)) not null) 
+            increaseFlow(G, S, f);
+      return f;
+      
+}
+\end{lstlisting}
+
+\subsection{Hledání cirkulace}
+Každý hranový řez sítí musí mít nezápornou kapacitu, to je nutnou podmínkou pro to, aby to co přiteče mohlo také odtéct. Algoritmus hledá nepřípustné toky a opravuje je tak, aby byla cirkulace přípustná. Pokud je každý tok přístupný algoritmus končí.
+
+Hledáme zlepšující cestu tak, aby nová cirkulace splňovala minimální tok i kapacitu.
+\cleardoublepage
+
+\tableofcontents
+
+\end{document}

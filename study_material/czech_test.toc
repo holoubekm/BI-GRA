@@ -1,0 +1,25 @@
+\select@language {czech}
+\contentsline {section}{\numberline {1}Definice}{2}
+\contentsline {section}{\numberline {2}Algoritmy}{7}
+\contentsline {subsection}{\numberline {2.1}Z\IeC {\'a}kladn\IeC {\'\i } algoritmy}{7}
+\contentsline {subsubsection}{\numberline {2.1.1}BFS}{7}
+\contentsline {subsubsection}{\numberline {2.1.2}DFS}{7}
+\contentsline {subsubsection}{\numberline {2.1.3}Topo-sort}{8}
+\contentsline {subsubsection}{\numberline {2.1.4}Siln\IeC {\'e} komponenty pomoc\IeC {\'\i } DFS}{8}
+\contentsline {subsubsection}{\numberline {2.1.5}Hled\IeC {\'a}n\IeC {\'\i } Eulerova tahu}{8}
+\contentsline {subsection}{\numberline {2.2}Hled\IeC {\'a}n\IeC {\'\i } kostry}{9}
+\contentsline {subsubsection}{\numberline {2.2.1}Bor\IeC {\r u}vk\IeC {\r u}v - Kruskal\IeC {\r u}v algoritmus}{9}
+\contentsline {subsubsection}{\numberline {2.2.2}Jarn\IeC {\'\i }k\IeC {\r u}v - Prim\IeC {\r u}v algoritmus}{10}
+\contentsline {subsection}{\numberline {2.3}K\IeC {\'o}dov\IeC {\'a}n\IeC {\'\i } dat}{10}
+\contentsline {subsubsection}{\numberline {2.3.1}Huffman\IeC {\r u}v algoritmus}{10}
+\contentsline {subsection}{\numberline {2.4}Ur\IeC {\v c}ov\IeC {\'a}n\IeC {\'\i } vzd\IeC {\'a}lenosti od uzlu}{11}
+\contentsline {subsubsection}{\numberline {2.4.1}Spole\IeC {\v c}n\IeC {\'e} funkce pro ur\IeC {\v c}en\IeC {\'\i } vzd\IeC {\'a}lenosti}{11}
+\contentsline {subsubsection}{\numberline {2.4.2}Dijkstr\IeC {\r u}v algoritmus}{12}
+\contentsline {subsubsection}{\numberline {2.4.3}Belman - Ford\IeC {\r u}v algoritmus}{12}
+\contentsline {subsubsection}{\numberline {2.4.4}\IeC {\'U}prava pro acyklick\IeC {\'e} grafy}{13}
+\contentsline {subsection}{\numberline {2.5}Ur\IeC {\v c}en\IeC {\'\i } vzd\IeC {\'a}lenosti mezi v\IeC {\v s}emi uzly}{13}
+\contentsline {subsubsection}{\numberline {2.5.1}Floyd - Warshall algoritmus}{13}
+\contentsline {subsubsection}{\numberline {2.5.2}Johnson\IeC {\r u}v algoritmus}{14}
+\contentsline {subsection}{\numberline {2.6}Hled\IeC {\'a}n\IeC {\'\i } maxim\IeC {\'a}ln\IeC {\'\i }ho toku}{15}
+\contentsline {subsubsection}{\numberline {2.6.1}Algoritmus Forda Fulkersona}{15}
+\contentsline {subsection}{\numberline {2.7}Hled\IeC {\'a}n\IeC {\'\i } cirkulace}{16}

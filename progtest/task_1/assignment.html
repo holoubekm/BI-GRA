@@ -1,0 +1,375 @@
+<!--?xml version="1.0" encoding="utf-8" ?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-transitional.dtd">
+<html><head>
+  <title>holoumar@progtest.fit.cvut.cz - ProgTest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="assignment_files/css.css" rel="stylesheet" type="text/css">
+  <script src="assignment_files/shared.js" language="JavaScript" type="text/javascript"></script>
+  
+ </head>
+ <body text="#000000" bgcolor="#828273">
+  <table width="100%" cellspacing="0" cellpadding="0" border="0">
+   <tbody><tr height="25">
+    <td bgcolor="#00ff00" align="left"><span class="navLink"><a class="navLink" href="https://progtest.fit.cvut.cz/index.php?X=Main">ProgTest</a>&nbsp;&nbsp;►&nbsp;&nbsp;<a class="navLink" href="https://progtest.fit.cvut.cz/index.php?X=Course&amp;Cou=144">BI-GRA (14/15 LS)</a>&nbsp;&nbsp;►&nbsp;&nbsp;<a class="navLink" href="https://progtest.fit.cvut.cz/index.php?X=TaskGrp&amp;Cou=144&amp;Tgr=893">Domácí úloha 01</a>&nbsp;&nbsp;►&nbsp;&nbsp;<b>Čisté Dráhy</b></span></td>
+    <td bgcolor="#00ff00" align="right"><a class="navLink" href="https://progtest.fit.cvut.cz/index.php?X=Logout">Logout</a></td>
+   </tr>
+  </tbody></table>
+<br>
+
+
+
+
+ <br>
+ <br>
+   <center>
+   <div class="topLayout">
+    <div class="outBox">
+     <table class="header" width="100%" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+       <td class="header"><b>Čisté Dráhy</b></td>
+      </tr>
+     </tbody></table>
+    </div>
+   </div>
+  </center>
+ <form name="form1" method="post" action="?X=TaskU&amp;Cou=144&amp;Tgr=893&amp;Tsk=1205" enctype="multipart/form-data">
+  <center>
+    <div class="topLayout">
+     <div class="outBox">
+      <table id="maintable" width="100%" cellspacing="0" cellpadding="2" border="0">
+       <colgroup><col width="200">
+       <col>
+       <col width="130">
+
+       </colgroup><tbody><tr>
+        <td class="ltCell" align="left"><b>Termín odevzdání:</b></td>
+        <td class="tCell" align="left"><b>03.05.2015 23:59:59</b></td>
+        <td class="rtCell" id="countdown" align="right">&nbsp;</td>
+       </tr>
+
+       <tr>
+        <td class="lCell" align="left"><b>Hodnocení:</b></td>
+        <td class="rCell" colspan="2" align="left"><b>2.0000</b></td>
+       </tr>
+       <tr>
+        <td class="lCell" align="left"><b>Max. hodnocení:</b></td>
+        <td class="rCell" colspan="2" align="left"><b>2.0000</b> (bez bonusů)</td>
+       </tr>
+       <tr>
+        <td class="lCell" align="left"><b>Odevzdaná řešení:</b></td>
+        <td class="rCell" colspan="2" align="left">1 /  20 Volné pokusy + 20 Penalizované pokusy (-2 % penalizace za každé odevzdání)</td>
+       </tr>
+
+       <tr>
+        <td class="lbCell" align="left"><b>Nápovědy:</b></td>
+        <td class="rbCell" colspan="2" align="left">0 / 10 Volné nápovědy + 10 Penalizované nápovědy (-2 % penalizace za každou nápovědu)</td>
+       </tr>
+
+       <tr>
+        <td class="lrtbCell" colspan="3" align="left"><p>Finanční situace Čistých drah (dále jen ČD) donutila přemýšlet 
+společnost o optimalizaci poskytování dopravy. Potřebují seriózní studii 
+o tom, které tratě by se daly zrušit, protože nejsou výdělečné a jejich 
+údržba se nevyplácí. Zároveň si ale nesmí dovolit zrušit dopravní 
+obslužnost mezi městy, která doposud spojená byla, protože by se 
+starostové příliš hlučně ozývali.</p> 
+ 
+<p>Úkolem pro Vás je zjistit, které tratě mezi městy se dají zrušit tak, 
+aby zůstala zachována dopravní obslužnost mezi všemi městy, v kterých 
+Čisté dráhy poskytují dopravu. Zároveň chtějí ale tuto dosažitelnost 
+udržovat s co nejnižšími náklady. Vyčíslení nákladů za rok v mil. korun 
+na danou trať máte od ČD samozřejmě k dispozici. Navrhněte řešení a 
+vyčíslete náklady na roční údržbu celé optimalizované sítě.</p> 
+ 
+<p>Když bylo představenstvem ČD vše projednáno a schváleno, všiml si jeden 
+mladší člen dozorčí rady poznámky v projektech financovaných fondem 
+rozvoje EU, že na nově rekonstruovaných tratích, na které byla dotace 
+čerpána, garantují ČD provoz pro dalších 20 let. Tyto tratě tedy 
+<b>nesmíte</b> v žádném případě zrušit! </p>
+ 
+<p>Údaje poskytnuté ČD vypadají následovně: Máte N měst číslovaných od nuly 
+a M dvojic měst, mezi kterými vede obousměrná trať. Města v této síti 
+jsou navzájem propojená tak, že se dostanete z libovolného města do 
+jiného. Tuto vlastnost rozhodně chtějí ČD zachovat. Předpokládejte dále, 
+že N i M jsou řádově 10^4.</p> 
+ 
+<b>Vstup:</b> 
+<p>N M</p> 
+<p>seznam dotovaných tratí jako seznam dvojic měst I J mezi kterými vede 
+trať, města jsou oddělena mezerou, jednotlivé dvojice čárkou. Vše na 
+jednom řádku.</p> 
+<p>seznam tratí jako seznam trojic I J C, na každém řádku jedna trojice kde 
+I a J jsou města, a C je celočíselný náklad na provoz. Pro jednoznačnost 
+předpokládejme, že všechna C jsou navzájem různá.</p> 
+ 
+<b>Výstup:</b> 
+<p>S (součet nákladů na všechny tratě v optimalizované síti)</p> 
+<p>Výsledná síť reprezentovaná jako seznam následníků. Na každém řádku 
+číslo města a vzestupně setříděný seznam sousedních měst. Řádky musí být 
+setříděny vzestupně podle čísla města. </p>
+ 
+<h3>Příklad vstupu a výstupu</h3>
+
+<pre><b>Vstup:</b> 
+
+11 18 
+9 7,7 8,10 9,8 9 
+9 7 129 
+7 8 120 
+4 8 150 
+4 5 88 
+1 2 77 
+0 1 69 
+10 9 142 
+8 9 128 
+10 8 136 
+2 3 111 
+1 10 132 
+5 7 153 
+4 6 104 
+2 0 81 
+2 4 110 
+6 3 99 
+3 4 83 
+5 6 96 
+ 
+<b>Výstup:</b>
+
+1174 
+0 1 
+1 0 2 10 
+2 1 4 
+3 4 
+4 2 3 5 
+5 4 6 
+6 5 
+7 8 9 
+8 7 9 
+9 7 8 10 
+10 1 9 
+</pre>
+
+
+<img src="assignment_files/index.html">
+<p>Při implementaci máte k dispozici datové struktury z STL, viz ukázka. Struktury z STL 
+použít můžete, ale nemusíte. </p>
+
+<pre>#ifndef __PROGTEST__
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;set&gt;
+#include &lt;queue&gt;
+#include &lt;list&gt;
+#include &lt;stdint.h&gt;
+
+using namespace std;
+#endif /* __PROGTEST__ */
+
+void cd( const char * inFile, const char * outFile )
+ {
+   // mandatory, todo
+ }
+
+
+#ifndef __PROGTEST__
+int main ( int argc, char * argv [] )
+ {
+   // tests
+   return 0;
+ }
+#endif /* __PROGTEST__ */
+</pre>
+
+</td>
+       </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+      </tbody></table>
+     </div>
+    </div>
+
+
+
+
+
+ <br>
+ <div class="topLayout">
+  <div class="outBox">
+   <table id="maintable" width="100%" cellspacing="0" cellpadding="2" border="0">
+    <colgroup><col width="200">
+    <col>
+    <col width="130">
+
+   </colgroup><tbody><tr>
+    <td class="ltbOkSepCell" align="left"><b>1</b></td>
+    <td class="tbOkSepCell" align="left"><b>19.04.2015 16:06:20</b></td>
+    <td class="rtbOkSepCell" align="center"><div class="but1 w120"><div class="but2"><a class="butLink" href="https://progtest.fit.cvut.cz/index.php?X=TaskD&amp;Cou=144&amp;Tgr=893&amp;Tsk=1205&amp;Sub=561496">Download</a></div></div></td>
+   </tr>
+   <tr>
+    <td class="ltCell" align="left"><b>Stav odevzdání:</b></td>
+    <td class="tCell" align="left">Ohodnoceno</td>
+
+
+
+    <td class="rtbCell" rowspan="2">&nbsp;</td>
+
+
+   </tr>
+
+   <tr>
+    <td class="lbCell" align="left"><b>Hodnocení:</b></td>
+    <td class="bCell" align="left">2.0000</td>
+   </tr>   <tr>
+    <td class="lrtbCell" colspan="3" align="left"><ul><li><b>Hodnotitel: automat</b><ul><li>Program zkompilován</li><li>Test 'Zakladni test se soubory dle ukazky': Úspěch<ul><li>Dosaženo: 100.00 %, požadováno: 100.00 %</li><li>Celková doba běhu: 0.000 s (limit: 2.000 s)</li><li>Úspěch v závazném testu, hodnocení: 100.00 %</li></ul></li>
+<li>Test 'Test na malych grafech': Úspěch<ul><li>Dosaženo: 100.00 %, požadováno: 100.00 %</li><li>Celková doba běhu: 0.953 s (limit: 2.000 s)</li><li>Úspěch v závazném testu, hodnocení: 100.00 %</li></ul></li>
+<li>Celkové hodnocení: 100.00 % (= 1.00 * 1.00)</li></ul></li><li>Použité nápovědy: 2</li><li>Penalizace za vyčerpané nápovědy: Není (2 &lt;= 10 limit)</li><li>Celkové procentní hodnocení: 100.00 %</li><li>Celkem bodů: 1.00 * 2.00 = 2.00</li></ul></td>
+   </tr> <tr>
+  <td class="ltbCell" align="left"><b>SW metriky:</b></td>
+  <td class="rtbCell" colspan="2" align="left">
+   <table cellpadding="2" border="0">
+    <tbody><tr>
+     <td>&nbsp;</td>
+     <td class="ac">Celkem</td>
+     <td class="ac">Průměr</td>
+     <td class="ac">Maximum</td>
+     <td>Jméno funkce</td>
+    </tr>
+    <tr>
+     <td>Funkce:</td>
+     <td class="ar"><b>6</b></td>
+     <td class="ar">--</td>
+     <td class="ar">--</td>
+     <td>--</td>
+    </tr>
+    <tr>
+     <td>Řádek kódu:</td>
+     <td class="ar"><b>106</b></td>
+     <td class="ar"><span class="textOk">17.67 ± 26.31</span></td>
+     <td class="ar"><span class="textWarn">76</span></td>
+     <td><tt>cd(const char *,const char *)</tt></td>
+    </tr>
+    <tr>
+     <td>Cyklomatická složitost:</td>
+     <td class="ar"><b>15</b></td>
+     <td class="ar"><span class="textOk">2.50 ± 3.86</span></td>
+     <td class="ar"><span class="textOk">11</span></td>
+     <td><tt>cd(const char *,const char *)</tt></td>
+    </tr>
+   </tbody></table>
+  </td>
+ </tr>   </tbody></table>
+  </div>
+ </div> <br>
+  
+  
+  
+  
+ 
+  </center>
+ </form>
+
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+<!--
+
+var deadLine = new Date ( 1430690399 * 1000 );
+
+function CBpressed ( num )
+ {
+   var pre, cb;
+
+   cb = MM_findObj ( "cb_" + num );
+   pre = MM_findObj ( "pre_" + num );
+   if ( cb != null && pre != null )
+    {
+      pre . style . display = cb . checked ? "block" : "none";
+    }
+ }
+
+function unlockAdvice ( url )
+ {
+   if ( confirm ( 'Máte k dispozici pouze omezený počet nápověd. Navíc, použití nápovědy může snížit bodové hodnocení. Opravdu chcete zpřístupnit tuto nápovědu?' ) )
+    this . location = url;
+ }
+
+function setCountdown ( )
+ {
+   var d = new Date ();
+   var x = ( deadLine . getTime () - d . getTime () );
+   var tgt = document . getElementById ( "countdown" );
+
+   if ( x > 0 )
+    {
+      var s = Math . floor ( x / 1000 );
+      var ms = (x % 1000) + "";
+
+      while ( ms . length  < 3 ) ms = "0" + ms;
+
+      tgt . innerHTML = s + "." + ms + " sec";
+
+      window . setTimeout ( setCountdown, 117 );
+    }
+   else
+    {
+      tgt . innerHTML = '&nbsp;';
+    }
+ }
+
+function showRefSolution ( )
+ {
+   var t = document . getElementById ( "reftable" );
+   var x = document . getElementsByName ( "SHOW_REF" )[0];
+
+   if ( ! x ) return;
+   var r1 = t . rows[1], r2 = t . rows[2];
+
+   if ( x . checked )
+    {
+      r1 . style . display = "";
+      if ( r2 ) r2 . style . display = "";
+    }
+   else
+    {
+      r1 . style . display = "none";
+      if ( r2 ) r2 . style . display = "none";
+    }
+ }
+
+
+setCountdown ();
+showRefSolution ();
+
+// -->
+</script>
+
+
+
+
+
+ 
+
+
+</body></html>
+<!-- Template run time: 0.11265301704407 sec -->

@@ -1,0 +1,34 @@
+\beamer@endinputifotherversion {3.36pt}
+\headcommand {\sectionentry {1}{Definice}{1}{Definice}{0}}
+\headcommand {\beamer@sectionpages {1}{0}}
+\headcommand {\beamer@subsectionpages {1}{0}}
+\headcommand {\sectionentry {2}{Algoritmy}{10}{Algoritmy}{0}}
+\headcommand {\beamer@sectionpages {1}{9}}
+\headcommand {\beamer@subsectionpages {1}{9}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{10}{BFS}}\headcommand {\beamer@subsectionpages {10}{9}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{11}{Z\IeC {\'a}kladn\IeC {\'\i } algoritmy}}\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{1}{11}{DFS}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{2}{13}{Topo-sort}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{3}{13}{Siln\IeC {\'e} komponenty pomoc\IeC {\'\i } DFS}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{2}{4}{13}{Hled\IeC {\'a}n\IeC {\'\i } Eulerova tahu}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{14}{Hled\IeC {\'a}n\IeC {\'\i } kostry}}\headcommand {\beamer@subsectionpages {11}{13}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{3}{1}{14}{Bor\IeC {\r u}vk\IeC {\r u}v - Kruskal\IeC {\r u}v algoritmus}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{3}{2}{16}{Jarn\IeC {\'\i }k\IeC {\r u}v - Prim\IeC {\r u}v algoritmus}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{17}{K\IeC {\'o}dov\IeC {\'a}n\IeC {\'\i } dat}}\headcommand {\beamer@subsectionpages {14}{16}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{4}{1}{17}{Huffman\IeC {\r u}v algoritmus}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{18}{Ur\IeC {\v c}ov\IeC {\'a}n\IeC {\'\i } vzd\IeC {\'a}lenosti od uzlu}}\headcommand {\beamer@subsectionpages {17}{17}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{5}{1}{18}{Spole\IeC {\v c}n\IeC {\'e} funkce pro ur\IeC {\v c}en\IeC {\'\i } vzd\IeC {\'a}lenosti}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{5}{2}{19}{Dijkstr\IeC {\r u}v algoritmus}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{5}{3}{20}{Belman - Ford\IeC {\r u}v algoritmus}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{5}{4}{21}{\IeC {\'U}prava pro acyklick\IeC {\'e} grafy}}
+\headcommand {\beamer@subsectionentry {0}{2}{6}{22}{Ur\IeC {\v c}en\IeC {\'\i } vzd\IeC {\'a}lenosti mezi v\IeC {\v s}emi uzly}}\headcommand {\beamer@subsectionpages {18}{21}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{6}{1}{22}{Floyd - Warshall algoritmus}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{6}{2}{24}{Johnson\IeC {\r u}v algoritmus}}
+\headcommand {\beamer@subsectionentry {0}{2}{7}{25}{Hled\IeC {\'a}n\IeC {\'\i } maxim\IeC {\'a}ln\IeC {\'\i }ho toku}}\headcommand {\beamer@subsectionpages {22}{24}}
+\headcommand {\beamer@subsubsectionentry {0}{2}{7}{1}{26}{Algoritmus Forda Fulkersona}}
+\headcommand {\beamer@subsectionentry {0}{2}{8}{26}{Hled\IeC {\'a}n\IeC {\'\i } cirkulace}}\headcommand {\beamer@subsectionpages {25}{25}}
+\headcommand {\beamer@partpages {1}{27}}
+\headcommand {\beamer@subsectionpages {26}{27}}
+\headcommand {\beamer@sectionpages {10}{27}}
+\headcommand {\beamer@documentpages {27}}
+\headcommand {\def \inserttotalframenumber {0}}
