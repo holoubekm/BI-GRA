@@ -1,5 +1,6 @@
-# BI-GRA Course
-## CTU / ČVUT FIT
+# BI-AG1 / BI-GRA Course
+## Algoritmy a grafy 1 / Grafové algoritmy a základy teorie složitosti
+### CTU / ČVUT FIT
 
 ### Graph algorithms
 Folder contains a custom implementation of different shortest path finding algorithms. 
